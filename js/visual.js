@@ -1,4 +1,5 @@
 window.addEventListener("load", function () {
+  AOS.init();
   // 비디오 항목 체크한다. (video태그로 파악)
   // 모든 비디오 태그를 변수에 저장
   let videos = this.document.querySelectorAll(".swVisual video");
@@ -6,6 +7,7 @@ window.addEventListener("load", function () {
   // 비디오 시간 체크
   // 비디오의 재생 시간을 보관할 배열을 생성
   let videoTimeArr = [];
+
   console.log(videoTimeArr);
   // 비디오 재생 시간을 배열에 저장하는 반복문
   videos.forEach((video, index) => {
@@ -67,32 +69,38 @@ window.addEventListener("load", function () {
     // 일단 타이머를 청소한다.
     // setTimeout : 1번 실행 clearTimeout()
     // setInterval : 시간마다 연속 실행 clearInterval()
-    clearInterval(videoTimer)
-    let videoTime = videoTimeArr[videoIndex]
+    clearInterval(videoTimer);
+    let videoTime = videoTimeArr[videoIndex];
     console.log(videoTime);
-    
+
     videoTimer = setInterval(() => {
-      barScaleW++
+      barScaleW++;
       // console.log(barScaleW);
-      activeBar.style.width = `${barScaleW}%`
+      activeBar.style.width = `${barScaleW}%`;
       // console.log(barScaleW);
       // 바의 길이가 100% 이상이 되면 실행
-      if(barScaleW >= 100){
-        clearInterval(videoTimer)
-        videoReset()
-        swVisual.slideNext()
+      if (barScaleW >= 100) {
+        clearInterval(videoTimer);
+        videoReset();
+        swVisual.slideNext();
       }
-
-      
     }, videoTime * 10);
   }
-  // visual- control 
+  // visual- control
   const visualControl = this.document.querySelectorAll(".visual-control > li");
   visualControl.forEach(function (item, index) {
-      item.addEventListener("click", function(){
-          videoIndex = index
-          swVisual.slideTo(videoIndex)
-      })
+    item.addEventListener("click", function () {
+      videoIndex = index;
+      swVisual.slideTo(videoIndex);
     });
   });
-  
+  // business스와이퍼
+  const swBusiness = new Swiper(".swBusiness", {
+    loop: true,
+    speed: 500,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+  });
+});
