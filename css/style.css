@@ -27,27 +27,38 @@ html {
   font-size: 16px;
 }
 body {
-  font-family: Pretendard, "Nanum Myeongjo", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: Pretendard, "Nanum Myeongjo", -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.64px;
   color: #191919;
   word-break: keep-all;
-  /* min-width: 780px; */
-  background-color: blueviolet;
+  min-width: 780px;
+
   height: 1000px;
 }
 /* 안내창 */
 /* 공통영역 */
-.wrap{
-    position: relative;
+.wrap {
+  position: relative;
 }
-.inner{
-    position: relative;
-    max-width: 1800px;
-    width: 100%;
-    min-width: 640px;
-    padding: 0 90px;
-    margin: 0 auto;
-    /* background-color: bisque; */
+.inner {
+  position: relative;
+  max-width: 1800px;
+  width: 100%;
+  min-width: 640px;
+  padding: 0 90px;
+  margin: 0 auto;
+  /* background-color: bisque; */
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+  background-color: rgba(137, 115, 88, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
 }
